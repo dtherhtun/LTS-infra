@@ -1,7 +1,7 @@
 locals {
   project_name = "lts"
   owner        = "Platform-team"
-  region       = "us-west-1"
+  region       = "us-east-1"
   env          = "development"
   subnets      = chunklist([for x in cidrsubnets("10.0.0.0/12", 12, 12, 12, 12, 12, 12, 12, 12, 12, 12) : x if x != cidrsubnets("10.0.0.0/12", 12)[0]], 3)
 }
