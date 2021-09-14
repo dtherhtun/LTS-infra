@@ -24,6 +24,7 @@ locals {
 
   sg = {
     ssh_sg = module.ssh_sg.security_group_id
+    web_sg = module.web_sg.security_group_id
   }
 
   ssh_key = {
