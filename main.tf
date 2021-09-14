@@ -7,6 +7,7 @@ locals {
 
   distro = {
     ubuntu = data.aws_ami.ubuntu.id
+    centos = data.aws_ami.centos.id
   }
 
   network = {
@@ -66,6 +67,15 @@ module "ssh_sg" {
   version = "4.3.0"
 
   name                = join("-", [local.project_name, "bastionsg"])
+  vpc_id              = module.vpc.vpc_id
+  ingress_cidr_blocks = ["0.0.0.0/0"]
+}
+
+module "web_sg" {
+  source  = "terraform-aws-modules/security-group/aws//modules/http-80"
+  version = "4.3.0"
+
+  name                = join("-", [local.project_name, "web"])
   vpc_id              = module.vpc.vpc_id
   ingress_cidr_blocks = ["0.0.0.0/0"]
 }

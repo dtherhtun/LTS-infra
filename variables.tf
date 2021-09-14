@@ -41,6 +41,14 @@ variable "instances" {
       is_mon        = true
       sg            = "ssh_sg"
       network       = "public3"
+    },
+    "web1" = {
+      distro        = "centos"
+      instance_type = "t3.micro"
+      ssh_key       = "ncz"
+      is_mon        = false
+      sg            = "web_sg"
+      network       = "private1"
     }
   }
 }
