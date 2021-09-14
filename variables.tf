@@ -30,3 +30,17 @@ variable "vpc" {
   }```
   EOF
 }
+
+variable "instances" {
+  type = map(any)
+  default = {
+    "bastion" = {
+      distro        = "ubuntu"
+      instance_type = "t2.micro"
+      ssh_key       = "ncz"
+      is_mon        = true
+      sg            = "ssh_sg"
+      network       = "public3"
+    }
+  }
+}
