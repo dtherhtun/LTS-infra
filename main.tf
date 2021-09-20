@@ -8,6 +8,7 @@ locals {
   distro = {
     ubuntu = data.aws_ami.ubuntu.id
     centos = data.aws_ami.centos.id
+    ecs    = data.aws_ami.ecs
   }
 
   network = {

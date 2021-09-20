@@ -1,3 +1,4 @@
+# https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -32,4 +33,19 @@ data "aws_ami" "centos" {
     name   = "root-device-type"
     values = ["ebs"]
   }
+}
+
+data "aws_ami" "ecs" {
+most_recent = true
+owners = ["591542846629"] # AWS
+
+  filter {
+      name   = "name"
+      values = ["*amazon-ecs-optimized"]
+  }
+
+  filter {
+      name   = "virtualization-type"
+      values = ["hvm"]
+  }  
 }
