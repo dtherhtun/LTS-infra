@@ -36,16 +36,16 @@ data "aws_ami" "centos" {
 }
 
 data "aws_ami" "ecs" {
-most_recent = true
-owners = ["591542846629"] # AWS
+  most_recent = true
+  owners      = ["591542846629"] # AWS
 
   filter {
-      name   = "name"
-      values = ["*amazon-ecs-optimized"]
+    name   = "name"
+    values = ["*amazon-ecs-optimized"]
   }
 
   filter {
-      name   = "virtualization-type"
-      values = ["hvm"]
-  }  
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
 }
