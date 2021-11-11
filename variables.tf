@@ -39,6 +39,9 @@ variable "instances" {
       instance_type = "t2.micro"
       ssh_key       = "ncz"
       is_mon        = true
+      encrypted     = true
+      volume_type   = "gp2"
+      volume_size   = 10
       sg            = "ssh_sg"
       network       = "public3"
     },
@@ -47,6 +50,9 @@ variable "instances" {
       instance_type = "t3.micro"
       ssh_key       = "ncz"
       is_mon        = false
+      encrypted     = true
+      volume_type   = "gp2"
+      volume_size   = 10
       sg            = "web_sg"
       network       = "private1"
     }

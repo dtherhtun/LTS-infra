@@ -96,6 +96,13 @@ module "ec2_instance" {
   monitoring             = each.value.is_mon
   vpc_security_group_ids = [coalesce(local.sg[each.value.sg], each.value.sg)]
   subnet_id              = coalesce(local.network[each.value.network], each.value.network)
+  root_block_device = [
+    {
+      encrypted   = each.value.encrypted
+      volume_type = each.value.volume_type
+      volume_size = each.value.volume_size
+    }
+  ]
 
   tags = {
     Terraform   = "true"
