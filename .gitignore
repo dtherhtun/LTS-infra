@@ -7,3 +7,5 @@
 
 # .terraform.lock.hcl
 *.lock.hcl
+
+.idea

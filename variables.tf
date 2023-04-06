@@ -32,7 +32,8 @@ variable "vpc" {
 }
 
 variable "instances" {
-  type = map(any)
+  description = "EC2 instances specification."
+  type        = map(any)
   default = {
     "bastion" = {
       distro        = "ubuntu"
